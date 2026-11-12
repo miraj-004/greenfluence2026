@@ -14,6 +14,8 @@ import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { LangProvider } from "@/lib/i18n";
+import { MotionProvider, MotionToggle } from "@/lib/motion";
+import { PhoneCursor } from "@/components/site/PhoneCursor";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -92,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -122,11 +124,15 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <LangProvider>
+       <MotionProvider>
         <SiteHeader />
         <main id="main" tabIndex={-1} className="min-h-[60vh] outline-none">
           <Outlet />
         </main>
         <SiteFooter />
+        <MotionToggle />
+        <PhoneCursor />
+       </MotionProvider>
       </LangProvider>
     </QueryClientProvider>
   );

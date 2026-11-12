@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, Menu } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { UI } from "@/data/ui";
@@ -33,19 +33,26 @@ function LangSwitch() {
   );
 }
 
-const navLink = "rounded-md px-3 py-2 text-[0.9375rem] font-medium text-muted-foreground transition-ui hover:text-foreground data-[status=active]:text-primary";
+const navLink = "relative rounded-md px-3 py-2 text-[0.9375rem] font-medium text-muted-foreground transition-ui hover:text-foreground data-[status=active]:text-primary after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-primary after:transition-transform after:duration-300 hover:after:scale-x-100 data-[status=active]:after:scale-x-100";
 
 export function SiteHeader() {
   const { t } = useLang();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 12);
+    on();
+    window.addEventListener("scroll", on, { passive: true });
+    return () => window.removeEventListener("scroll", on);
+  }, []);
   return (
     <>
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-card focus:px-4 focus:py-2 focus:shadow-lg">
         {t(UI.skip)}
       </a>
-      <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur-sm">
-        <div className="container-site flex h-16 items-center gap-4">
-          <Link to="/" aria-label={t(UI.home)} className="mr-auto flex items-baseline gap-1.5 text-lg font-bold tracking-tight">
+      <header data-scrolled={scrolled} className="sticky top-0 z-40 border-b border-transparent bg-background/90 backdrop-blur-sm transition-all duration-300 data-[scrolled=true]:border-border data-[scrolled=true]:shadow-[0_8px_24px_-18px_var(--bark)]">
+        <div className={`container-site flex items-center gap-4 transition-all duration-300 ${scrolled ? "h-14" : "h-[4.5rem]"}`}>
+          <Link to="/" aria-label={t(UI.home)} className="mr-auto flex items-baseline gap-1.5 font-display text-lg font-extrabold tracking-tight">
             <span className="text-primary">GreenFluence</span>
             <span className="tabular text-foreground">2026</span>
           </Link>

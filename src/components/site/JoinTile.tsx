@@ -45,14 +45,14 @@ export function JoinTile({ role, image }: { role: Role; image?: { src: string; a
         </span>
         <h3 className="text-xl font-semibold">{t(r.title)}</h3>
         <p className="mt-2 flex-1 text-muted-foreground">{t(r.body)}</p>
-        <span className="mt-6 inline-flex items-center gap-1.5 font-semibold text-primary group-hover:underline">
+        <span className="mt-6 inline-flex min-h-11 w-fit items-center gap-1.5 rounded-full bg-primary px-5 font-semibold text-primary-foreground transition-ui group-hover:bg-primary/90">
           {action}
           {external && <ArrowUpRight className="size-[18px]" aria-hidden />}
         </span>
       </div>
     </>
   );
-  const cls = "group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-ui hover:border-primary";
+  const cls = "card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card";
   if (!isValidFormUrl(url)) {
     return (
       <Link to="/event-info" hash="updates" className={cls}>

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import eaLogo from "@/assets/earths-ants-logo.png.asset.json";
 import esdmBadge from "@/assets/esdm-badge.jpg.asset.json";
+import { FooterLandscape } from "@/components/nature/FooterLandscape";
 import { UI } from "@/data/ui";
 import { useLang } from "@/lib/i18n";
 
@@ -31,10 +32,11 @@ export function SiteFooter() {
     { to: "/faq", l: UI.nav.faq },
   ] as const;
   return (
-    <footer className="border-t border-border bg-card pb-24 md:pb-0">
+    <footer className="bg-card pb-24 md:pb-0">
+      <div className="bg-background"><FooterLandscape /></div>
       <div className="container-site grid gap-10 py-12 md:grid-cols-12">
         <div className="md:col-span-5">
-          <p className="text-lg font-bold"><span className="text-primary">GreenFluence</span> 2026</p>
+          <p className="font-display text-2xl font-extrabold"><span className="text-primary">GreenFluence</span> 2026</p>
           <p className="mt-2 text-sm text-muted-foreground">{t(UI.tagline)}</p>
           <p className="mt-2 text-sm text-muted-foreground">{t(UI.footerScope)}</p>
         </div>
