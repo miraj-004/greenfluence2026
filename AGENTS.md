@@ -31,4 +31,4 @@ use the editor.
 
 - Site content (copy, stages, categories, FAQs) lives in typed bilingual `{en,bn}` data under `src/data/`; outbound form URLs only in `src/data/links.ts` — keeps one source of truth for both languages.
 - Team-eligibility and roadmap deep-link rules live in `src/lib/competition.ts` with tests in `src/test/competition.test.ts`.
-- Decorative nature art lives in `src/components/nature/` as inline SVG + CSS keyframe utilities in `src/styles.css`; motion state (pause toggle, reduced motion, offscreen pause) lives in `src/lib/motion.tsx` — no animation libraries, keeps the bundle light and pausable.
+- Decorative nature art lives in `src/components/nature/` as inline SVG + CSS keyframe utilities in `src/styles.css`; motion helpers live in `src/lib/motion.tsx`; animations always run (owner asked: no pause toggle, no reduced-motion or offscreen pausing) — no animation libraries, keeps the bundle light.

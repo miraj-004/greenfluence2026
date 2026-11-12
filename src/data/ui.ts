@@ -10,7 +10,7 @@ export const UI = {
     roadmap: s("Roadmap", "রোডম্যাপ"),
     prizes: s("Prize Pool", "প্রাইজ পুল"),
     eventInfo: s("Event Info", "ইভেন্ট তথ্য"),
-    join: s("Get Involved", "যুক্ত হোন"),
+    join: s("Join Us", "আমাদের সাথে যুক্ত হোন"),
     organizers: s("Organizers", "আয়োজক"),
     meet: s("Who You’ll Meet", "যাদের সাথে দেখা হবে"),
     faq: s("FAQ", "প্রশ্নোত্তর"),

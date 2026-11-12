@@ -6,7 +6,7 @@ export function Reveal({ children, delay = 0, as: Tag = "div", className }: { ch
   const [state, setState] = useState<"idle" | "hidden" | "shown">("idle");
   useEffect(() => {
     const el = ref.current;
-    if (!el || !("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!el || !("IntersectionObserver" in window)) return;
     const r = el.getBoundingClientRect();
     if (r.top < window.innerHeight * 0.9) return; // already on screen: leave visible
     setState("hidden");
@@ -26,7 +26,7 @@ export function Counter({ value, label }: { value: number; label: string }) {
   const [n, setN] = useState(value);
   useEffect(() => {
     const el = ref.current;
-    if (!el || !("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!el || !("IntersectionObserver" in window)) return;
     if (el.getBoundingClientRect().top < window.innerHeight) return;
     setN(0);
     let raf = 0;

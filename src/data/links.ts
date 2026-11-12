@@ -5,6 +5,8 @@ export const FORM_LINKS = {
   ambassador: "https://forms.gle/kqDHXPES5hYWummq5",
 } as const;
 
+export const EVENT_LINK = "https://www.facebook.com/events/1315991003475935/";
+
 export const ORG_LINKS = {
   earthsAnts: "https://www.earthsants.org/",
   esdm: "https://www.daffodilvarsity.edu.bd/department/esdm/contact-us",

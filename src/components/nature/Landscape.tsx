@@ -12,7 +12,7 @@ export function Landscape() {
   useOffscreenPause(ref);
   useEffect(() => {
     const el = ref.current;
-    if (!el || !window.matchMedia("(hover: hover) and (pointer: fine)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!el || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     let raf = 0;
     const move = (e: PointerEvent) => {
       if (raf) return;

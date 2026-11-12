@@ -50,7 +50,8 @@ export type Stage = {
   chapter: 0 | 1 | 2;
   title: L;
   what: L;
-  who: L;
+  who?: L;
+  panel?: L;
   next: L;
   link: { to: "/competition" | "/prizes" | "/event-info" | "/roadmap"; hash?: string; label: L };
 };
@@ -81,10 +82,9 @@ export const STAGES: Stage[] = [
     chapter: 0,
     title: { en: "Shortlist Announcement", bn: "শর্টলিস্ট ঘোষণা" },
     what: {
-      en: "Advancing teams are identified through official organizer updates.",
-      bn: "অফিশিয়াল আপডেটের মাধ্যমে পরবর্তী ধাপে যাওয়া টিমগুলোর নাম জানানো হয়।",
+      en: "Judges and panelists review the submitted concept notes, select the strongest concepts, and shortlist teams based on their evaluation.",
+      bn: "বিচারক ও প্যানেলিস্টরা জমা দেওয়া কনসেপ্ট নোট পর্যালোচনা করেন, সবচেয়ে শক্তিশালী ধারণাগুলো বাছাই করেন এবং মূল্যায়নের ভিত্তিতে টিমগুলোকে শর্টলিস্ট করেন।",
     },
-    who: { en: "All registered teams", bn: "সকল নিবন্ধিত টিম" },
     next: { en: "Follow the official update channels.", bn: "অফিশিয়াল আপডেট চ্যানেলগুলো অনুসরণ করুন।" },
     link: updates,
   },
@@ -120,16 +120,16 @@ export const STAGES: Stage[] = [
       en: "The Team Leader submits the Campaign Reel according to the organizer’s instructions.",
       bn: "আয়োজকদের নির্দেশনা অনুযায়ী টিম লিডার ক্যাম্পেইন রিল জমা দেয়।",
     },
-    who: { en: "Team Leaders of shortlisted teams", bn: "শর্টলিস্টেড টিমের টিম লিডার" },
+    who: { en: "Shortlisted teams", bn: "শর্টলিস্টেড টিম" },
     next: { en: "Check the organizers’ current Reel instructions.", bn: "রিল সংক্রান্ত আয়োজকদের সর্বশেষ নির্দেশনা দেখুন।" },
     link: updates,
   },
   {
     slug: "evaluation",
     chapter: 1,
-    title: { en: "Evaluation", bn: "মূল্যায়ন" },
-    what: { en: "Judges review the submissions to select finalists.", bn: "বিচারকরা সাবমিশন পর্যালোচনা করে ফাইনালিস্ট নির্বাচন করেন।" },
-    who: { en: "Judges", bn: "বিচারকমণ্ডলী" },
+    title: { en: "Evaluation & Final Team Selection", bn: "মূল্যায়ন ও চূড়ান্ত টিম নির্বাচন" },
+    what: { en: "Judge Panels evaluate the submitted Campaign Reels using the Reel score breakdown and select the final teams for the Grand Finale.", bn: "বিচারক প্যানেল রিলের নম্বর বণ্টন অনুযায়ী জমা দেওয়া ক্যাম্পেইন রিল মূল্যায়ন করে এবং গ্র্যান্ড ফিনালের জন্য চূড়ান্ত টিম নির্বাচন করে।" },
+    panel: { en: "Judge Panels", bn: "বিচারক প্যানেল" },
     next: { en: "Learn how judges assess entries.", bn: "বিচারকরা কীভাবে মূল্যায়ন করেন জেনে নিন।" },
     link: { to: "/competition", hash: "judging", label: { en: "Judging", bn: "মূল্যায়ন পদ্ধতি" } },
   },

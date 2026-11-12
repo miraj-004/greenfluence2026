@@ -50,7 +50,7 @@ export function CompetitionExplorer() {
               <p className="tabular text-sm text-muted-foreground">{t(UI.stageOf(n, STAGES.length))}</p>
               <h3 className="mt-1 text-xl font-semibold">{t(s.title)}</h3>
               <dl className="mt-4 space-y-3 text-[0.9375rem]">
-                <div><dt className="font-semibold">{t(UI.whoTakesPart)}</dt><dd className="text-muted-foreground">{t(s.who)}</dd></div>
+                {s.who && <div><dt className="font-semibold">{t(UI.whoTakesPart)}</dt><dd className="text-muted-foreground">{t(s.who)}</dd></div>}
                 <div><dt className="font-semibold">{t(UI.deliverable)}</dt><dd className="text-muted-foreground">{t(ex.deliverable)}</dd></div>
               </dl>
               <Link to="/roadmap" search={{ stage: s.slug }} className="mt-5 inline-flex min-h-11 items-center gap-1.5 font-semibold text-primary hover:underline">

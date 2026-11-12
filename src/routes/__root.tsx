@@ -14,7 +14,7 @@ import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { LangProvider } from "@/lib/i18n";
-import { MotionProvider, MotionToggle } from "@/lib/motion";
+import { MotionProvider } from "@/lib/motion";
 import { PhoneCursor } from "@/components/site/PhoneCursor";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -130,7 +130,6 @@ function RootComponent() {
           <Outlet />
         </main>
         <SiteFooter />
-        <MotionToggle />
         <PhoneCursor />
        </MotionProvider>
       </LangProvider>

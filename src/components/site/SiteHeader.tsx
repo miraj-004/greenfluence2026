@@ -52,7 +52,7 @@ export function SiteHeader() {
       </a>
       <header data-scrolled={scrolled} className="sticky top-0 z-40 border-b border-transparent bg-background/90 backdrop-blur-sm transition-all duration-300 data-[scrolled=true]:border-border data-[scrolled=true]:shadow-[0_8px_24px_-18px_var(--bark)]">
         <div className={`container-site flex items-center gap-4 transition-all duration-300 ${scrolled ? "h-14" : "h-[4.5rem]"}`}>
-          <Link to="/" aria-label={t(UI.home)} className="mr-auto flex items-baseline gap-1.5 font-display text-lg font-extrabold tracking-tight">
+          <Link to="/" aria-label={t(UI.home)} className="mr-auto flex items-baseline gap-1.5 font-display text-2xl font-extrabold tracking-tight sm:text-[1.75rem]">
             <span className="text-primary">GreenFluence</span>
             <span className="tabular text-foreground">2026</span>
           </Link>

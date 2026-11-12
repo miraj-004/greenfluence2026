@@ -1,5 +1,6 @@
+import { EVENT_LINK } from "@/data/links";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Award, BadgeCheck, Building2, Lightbulb, Target } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Award, BadgeCheck, Building2, Lightbulb, Target } from "lucide-react";
 import { useRef } from "react";
 import gfLogo from "@/assets/greenfluence-logo.png.asset.json";
 import { CategoryArt } from "@/components/nature/CategoryArt";
@@ -9,7 +10,7 @@ import { FallingLeaves } from "@/components/nature/Wildlife";
 import { CompetitionExplorer } from "@/components/site/CompetitionExplorer";
 import { JoinTiles } from "@/components/site/JoinTile";
 import { Section } from "@/components/site/PageHeader";
-import { RegisterLink, btnSecondary } from "@/components/site/RegisterLink";
+import { RegisterLink, btnPrimary, btnSecondary } from "@/components/site/RegisterLink";
 import { Counter, Reveal } from "@/components/site/Reveal";
 import { OrganizerRow } from "@/components/site/SiteFooter";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -22,9 +23,9 @@ import { useScrollProgress } from "@/lib/motion";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GreenFluence 2026 — Where Sustainable Ideas Meet Powerful Brands" },
+      { title: "GreenFluence 2026 — National Sustainable Brand Storytelling & Campaign Innovation Competition" },
       { name: "description", content: "A nationwide competition empowering students in Bangladesh to turn sustainability challenges into brand stories, campaigns and measurable impact." },
-      { property: "og:title", content: "GreenFluence 2026 — Where Sustainable Ideas Meet Powerful Brands" },
+      { property: "og:title", content: "GreenFluence 2026 — National Sustainable Brand Storytelling & Campaign Innovation Competition" },
       { property: "og:description", content: "Student teams from all 64 districts research a real brand’s sustainability problem, invent a hypothetical brand, and design a campaign with measurable impact." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -44,11 +45,11 @@ function Home() {
         <Landscape />
         <div className="container-site relative grid py-14 md:py-20">
           <div className="max-w-2xl">
-            <img src={gfLogo.url} alt="GreenFluence 2026 logo" width={200} height={110} className="mb-6 h-16 w-auto sm:h-20" />
+            <img src={gfLogo.url} alt="GreenFluence 2026 logo" width={200} height={110} className="mb-6 h-28 w-auto sm:h-36 lg:h-44" />
             <h1 className="h-display">{t(HOME.headline)}</h1>
             <p className="mt-5 max-w-xl text-lg text-foreground/80">{t(HOME.sub)}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <RegisterLink label={HOME.ctaJoin} />
+              <a href={EVENT_LINK} target="_blank" rel="noopener noreferrer" className={btnPrimary}>{t(HOME.ctaJoin)} <ArrowUpRight className="size-[18px]" aria-hidden /><span className="sr-only">{t(UI.newTabSr)}</span></a>
               <Link to="/competition" className={btnSecondary}>{t(HOME.ctaExplore)}</Link>
             </div>
             <dl className="mt-10 inline-grid grid-cols-3 divide-x divide-border rounded-2xl border border-border bg-card/90 shadow-sm">

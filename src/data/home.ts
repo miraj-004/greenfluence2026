@@ -1,7 +1,7 @@
 import type { L } from "@/lib/i18n";
 
 export const HOME = {
-  headline: { en: "Where Sustainable Ideas Meet Powerful Brands.", bn: "যেখানে টেকসই আইডিয়া মিলিত হয় শক্তিশালী ব্র্যান্ডের সাথে।" } as L,
+  headline: { en: "National Sustainable Brand Storytelling & Campaign Innovation Competition", bn: "জাতীয় টেকসই ব্র্যান্ড স্টোরিটেলিং ও ক্যাম্পেইন উদ্ভাবন প্রতিযোগিতা" } as L,
   sub: {
     en: "A nationwide competition empowering students to transform sustainability challenges into powerful brand stories, innovative campaigns, and measurable impact.",
     bn: "একটি জাতীয় প্রতিযোগিতা, যা শিক্ষার্থীদের টেকসই চ্যালেঞ্জকে শক্তিশালী ব্র্যান্ড গল্প, উদ্ভাবনী ক্যাম্পেইন ও পরিমাপযোগ্য প্রভাবে রূপান্তরের সুযোগ দেয়।",

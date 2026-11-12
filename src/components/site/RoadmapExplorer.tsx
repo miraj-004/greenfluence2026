@@ -30,7 +30,8 @@ export function RoadmapExplorer({ index, onSelect }: { index: number; onSelect: 
       {!compact && <p className="tabular text-sm text-muted-foreground" aria-live="polite">{t(UI.stageOf(index + 1, STAGES.length))} · {t(CHAPTERS[s.chapter]!)}</p>}
       {!compact && <h2 className="mt-2 h-section">{t(s.title)}</h2>}
       <dl className={cn("grid gap-5", compact ? "mt-1" : "mt-6")}>
-        <div><dt className="font-semibold">{t(UI.whoTakesPart)}</dt><dd className="mt-1 text-muted-foreground">{t(s.who)}</dd></div>
+        {s.who && <div><dt className="font-semibold">{t(UI.whoTakesPart)}</dt><dd className="mt-1 text-muted-foreground">{t(s.who)}</dd></div>}
+        {s.panel && <div><dt className="font-semibold">{t({ en: "Responsible panel", bn: "দায়িত্বপ্রাপ্ত প্যানেল" })}</dt><dd className="mt-1 text-muted-foreground">{t(s.panel)}</dd></div>}
         <div><dt className="font-semibold">{t(UI.whatHappens)}</dt><dd className="mt-1 text-muted-foreground">{t(s.what)}</dd></div>
         <div>
           <dt className="font-semibold">{t(UI.nextMove)}</dt>

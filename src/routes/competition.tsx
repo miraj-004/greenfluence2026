@@ -13,6 +13,12 @@ import { cn } from "@/lib/utils";
 
 const IDS = ["seedlings", "saplings", "forests"];
 
+const REEL_SCORES = [
+  { label: { en: "Judges’ evaluation (core criteria)", bn: "বিচারকদের মূল্যায়ন (মূল মানদণ্ড)" }, weight: 60 },
+  { label: { en: "Social-media engagement (Facebook/Instagram post)", bn: "সোশ্যাল মিডিয়া এনগেজমেন্ট (ফেসবুক/ইনস্টাগ্রাম পোস্ট)" }, weight: 30 },
+  { label: { en: "Content Quality & Creativity", bn: "কনটেন্টের মান ও সৃজনশীলতা" }, weight: 10 },
+];
+
 export const Route = createFileRoute("/competition")({
   validateSearch: (s: Record<string, unknown>): { category?: CategoryId } =>
     typeof s["category"] === "string" && IDS.includes(s["category"]) ? { category: s["category"] as CategoryId } : {},
@@ -154,6 +160,19 @@ function CompetitionPage() {
                       <tr key={i} className="border-t border-border"><th scope="row" className="py-2.5 font-normal">{t(s.label)}</th><td className="tabular py-2.5 text-right font-semibold">{s.weight}</td></tr>
                     ))}
                     <tr className="border-t-2 border-foreground"><th scope="row" className="py-2.5">{t({ en: "Total", bn: "মোট" })}</th><td className="tabular py-2.5 text-right font-semibold">{SCORES.reduce((a, b) => a + b.weight, 0)}</td></tr>
+                  </tbody>
+                </table>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="reel-scores" className="border-0 border-t border-border">
+              <AccordionTrigger className="min-h-14 text-base font-semibold">{t({ en: "Reel Submission score breakdown (out of 100)", bn: "রিল সাবমিশনের নম্বর বণ্টন (১০০-এর মধ্যে)" })}</AccordionTrigger>
+              <AccordionContent>
+                <table className="w-full text-left text-base">
+                  <tbody>
+                    {REEL_SCORES.map((s, i) => (
+                      <tr key={i} className="border-t border-border"><th scope="row" className="py-2.5 font-normal">{t(s.label)}</th><td className="tabular py-2.5 text-right font-semibold">{s.weight}</td></tr>
+                    ))}
+                    <tr className="border-t-2 border-foreground"><th scope="row" className="py-2.5">{t({ en: "Total", bn: "মোট" })}</th><td className="tabular py-2.5 text-right font-semibold">{REEL_SCORES.reduce((a, b) => a + b.weight, 0)}</td></tr>
                   </tbody>
                 </table>
               </AccordionContent>
