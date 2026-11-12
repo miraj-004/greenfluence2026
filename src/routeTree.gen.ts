@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CompetitionRouteImport } from './routes/competition'
+import { Route as EventInfoRouteImport } from './routes/event-info'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as JoinRouteImport } from './routes/join'
+import { Route as PrizesRouteImport } from './routes/prizes'
+import { Route as RoadmapRouteImport } from './routes/roadmap'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompetitionRoute = CompetitionRouteImport.update({
+  id: '/competition',
+  path: '/competition',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventInfoRoute = EventInfoRouteImport.update({
+  id: '/event-info',
+  path: '/event-info',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JoinRoute = JoinRouteImport.update({
+  id: '/join',
+  path: '/join',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrizesRoute = PrizesRouteImport.update({
+  id: '/prizes',
+  path: '/prizes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapRoute = RoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/competition': typeof CompetitionRoute
+  '/event-info': typeof EventInfoRoute
+  '/faq': typeof FaqRoute
+  '/join': typeof JoinRoute
+  '/prizes': typeof PrizesRoute
+  '/roadmap': typeof RoadmapRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/competition': typeof CompetitionRoute
+  '/event-info': typeof EventInfoRoute
+  '/faq': typeof FaqRoute
+  '/join': typeof JoinRoute
+  '/prizes': typeof PrizesRoute
+  '/roadmap': typeof RoadmapRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/competition': typeof CompetitionRoute
+  '/event-info': typeof EventInfoRoute
+  '/faq': typeof FaqRoute
+  '/join': typeof JoinRoute
+  '/prizes': typeof PrizesRoute
+  '/roadmap': typeof RoadmapRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/competition'
+    | '/event-info'
+    | '/faq'
+    | '/join'
+    | '/prizes'
+    | '/roadmap'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/competition'
+    | '/event-info'
+    | '/faq'
+    | '/join'
+    | '/prizes'
+    | '/roadmap'
+  id:
+    | '__root__'
+    | '/'
+    | '/competition'
+    | '/event-info'
+    | '/faq'
+    | '/join'
+    | '/prizes'
+    | '/roadmap'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CompetitionRoute: typeof CompetitionRoute
+  EventInfoRoute: typeof EventInfoRoute
+  FaqRoute: typeof FaqRoute
+  JoinRoute: typeof JoinRoute
+  PrizesRoute: typeof PrizesRoute
+  RoadmapRoute: typeof RoadmapRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/competition': {
+      id: '/competition'
+      path: '/competition'
+      fullPath: '/competition'
+      preLoaderRoute: typeof CompetitionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/event-info': {
+      id: '/event-info'
+      path: '/event-info'
+      fullPath: '/event-info'
+      preLoaderRoute: typeof EventInfoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/join': {
+      id: '/join'
+      path: '/join'
+      fullPath: '/join'
+      preLoaderRoute: typeof JoinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prizes': {
+      id: '/prizes'
+      path: '/prizes'
+      fullPath: '/prizes'
+      preLoaderRoute: typeof PrizesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap': {
+      id: '/roadmap'
+      path: '/roadmap'
+      fullPath: '/roadmap'
+      preLoaderRoute: typeof RoadmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CompetitionRoute: CompetitionRoute,
+  EventInfoRoute: EventInfoRoute,
+  FaqRoute: FaqRoute,
+  JoinRoute: JoinRoute,
+  PrizesRoute: PrizesRoute,
+  RoadmapRoute: RoadmapRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

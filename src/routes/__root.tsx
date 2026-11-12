@@ -11,25 +11,21 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { LangProvider } from "@/lib/i18n";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+    <div className="container-site py-24">
+      <p className="eyebrow">404</p>
+      <h1 className="mt-3 h-display">This page isn’t on the roadmap.</h1>
+      <p className="mt-4 max-w-xl text-lg text-muted-foreground">The link may be old or mistyped. These pages will get you back on track.</p>
+      <div className="mt-8 flex flex-wrap gap-3">
+        <Link to="/" className="inline-flex min-h-11 items-center rounded-lg bg-primary px-5 font-semibold text-primary-foreground">Go home</Link>
+        <Link to="/roadmap" className="inline-flex min-h-11 items-center rounded-lg border border-input bg-card px-5 font-semibold">Roadmap</Link>
+        <Link to="/join" className="inline-flex min-h-11 items-center rounded-lg border border-input bg-card px-5 font-semibold">Registration</Link>
       </div>
     </div>
   );
@@ -81,21 +77,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "GreenFluence 2026" },
+      { name: "description", content: "A nationwide sustainable brand storytelling and digital campaign competition for students in Bangladesh." },
+      { property: "og:title", content: "GreenFluence 2026" },
+      { property: "og:description", content: "A nationwide sustainable brand storytelling and digital campaign competition for students in Bangladesh." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -124,7 +121,13 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <LangProvider>
+        <SiteHeader />
+        <main id="main" tabIndex={-1} className="min-h-[60vh] outline-none">
+          <Outlet />
+        </main>
+        <SiteFooter />
+      </LangProvider>
     </QueryClientProvider>
   );
 }
