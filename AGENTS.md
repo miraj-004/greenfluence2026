@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Site content (copy, stages, categories, FAQs) lives in typed bilingual `{en,bn}` data under `src/data/`; outbound form URLs only in `src/data/links.ts` — keeps one source of truth for both languages.
+- Team-eligibility and roadmap deep-link rules live in `src/lib/competition.ts` with tests in `src/test/competition.test.ts`.
