@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://greenfluence2026.lovable.app/sitemap.xml

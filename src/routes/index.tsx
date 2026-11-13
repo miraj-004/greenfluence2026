@@ -23,13 +23,15 @@ import { useScrollProgress } from "@/lib/motion";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GreenFluence 2026 — National Sustainable Brand Storytelling & Campaign Innovation Competition" },
-      { name: "description", content: "A nationwide competition empowering students in Bangladesh to turn sustainability challenges into brand stories, campaigns and measurable impact." },
-      { property: "og:title", content: "GreenFluence 2026 — National Sustainable Brand Storytelling & Campaign Innovation Competition" },
-      { property: "og:description", content: "Student teams from all 64 districts research a real brand’s sustainability problem, invent a hypothetical brand, and design a campaign with measurable impact." },
+      { title: "GreenFluence 2026 | Bangladesh Student Sustainability Competition" },
+      { name: "description", content: "Discover GreenFluence 2026, Bangladesh’s national sustainable brand storytelling and campaign innovation competition for students from all 64 districts." },
+      { property: "og:title", content: "GreenFluence 2026 | Bangladesh Student Sustainability Competition" },
+      { property: "og:description", content: "Join GreenFluence 2026: Bangladesh’s national student competition for sustainability, brand storytelling and campaign innovation." },
+      { property: "og:url", content: "https://greenfluence2026.lovable.app/" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://greenfluence2026.lovable.app/" }],
   }),
   component: Home,
 });
@@ -40,12 +42,24 @@ function Home() {
   const { t } = useLang();
   return (
     <>
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "GreenFluence 2026",
+          alternateName: "GreenFluence",
+          url: "https://greenfluence2026.lovable.app/",
+          description:
+            "Bangladesh’s national sustainable brand storytelling and campaign innovation competition for students.",
+          inLanguage: ["en", "bn"],
+        })}
+      </script>
       {/* Hero */}
       <section className="relative isolate min-h-[640px] overflow-hidden border-b border-border md:min-h-[720px]">
         <Landscape />
         <div className="container-site relative grid py-14 md:py-20">
           <div className="max-w-2xl">
-            <BrandImage src="/favicon.png" alt="GreenFluence 2026 logo" fallback="GreenFluence 2026" width={64} height={64} className="mb-6 size-16 sm:size-20 lg:size-24" fallbackClassName="max-w-[200px] text-xl sm:text-2xl" />
+            <BrandImage src="/favicon.png" alt="GreenFluence 2026 logo" fallback="GreenFluence 2026" width={64} height={64} className="mb-2 size-32 sm:size-40 lg:size-48" fallbackClassName="max-w-[200px] text-xl sm:text-2xl" />
             <h1 className="h-display">{t(HOME.headline)}</h1>
             <p className="mt-5 max-w-xl text-lg text-foreground/80">{t(HOME.sub)}</p>
             <div className="mt-8 flex flex-wrap gap-3">
