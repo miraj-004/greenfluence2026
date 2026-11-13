@@ -6,6 +6,7 @@ import { ANNOUNCEMENTS } from "@/data/content";
 import { ORG_LINKS } from "@/data/links";
 import { UI } from "@/data/ui";
 import { useLang } from "@/lib/i18n";
+import { canonicalUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/event-info")({
   head: () => ({
@@ -14,9 +15,11 @@ export const Route = createFileRoute("/event-info")({
       { name: "description", content: "Who organizes GreenFluence 2026, who takes part, the planned event roles, and where to find official updates." },
       { property: "og:title", content: "Event Info — GreenFluence 2026" },
       { property: "og:description", content: "Organized by Earth’s Ants and the Department of ESDM, Daffodil International University." },
+      { property: "og:url", content: canonicalUrl("/event-info") },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/event-info") }],
   }),
   component: EventInfoPage,
 });

@@ -5,6 +5,7 @@ import { RoadmapExplorer } from "@/components/site/RoadmapExplorer";
 import { STAGES } from "@/data/content";
 import { resolveStageIndex } from "@/lib/competition";
 import { useLang } from "@/lib/i18n";
+import { canonicalUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/roadmap")({
   validateSearch: (s: Record<string, unknown>): { stage?: string } => (typeof s["stage"] === "string" ? { stage: s["stage"] } : {}),
@@ -14,9 +15,11 @@ export const Route = createFileRoute("/roadmap")({
       { name: "description", content: "Your road to the National Grand Finale: nine stages from Concept Note to Campaign Reel to the final pitch." },
       { property: "og:title", content: "Roadmap — GreenFluence 2026" },
       { property: "og:description", content: "Explore all nine stages of GreenFluence 2026, from Concept Note Submission to the National Grand Finale." },
+      { property: "og:url", content: canonicalUrl("/roadmap") },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/roadmap") }],
   }),
   component: RoadmapPage,
 });

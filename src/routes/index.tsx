@@ -19,6 +19,7 @@ import { HOME } from "@/data/home";
 import { UI } from "@/data/ui";
 import { useLang } from "@/lib/i18n";
 import { useScrollProgress } from "@/lib/motion";
+import { canonicalUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,11 +28,11 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Discover GreenFluence 2026, Bangladesh’s national sustainable brand storytelling and campaign innovation competition for students from all 64 districts." },
       { property: "og:title", content: "GreenFluence 2026 | Bangladesh Student Sustainability Competition" },
       { property: "og:description", content: "Join GreenFluence 2026: Bangladesh’s national student competition for sustainability, brand storytelling and campaign innovation." },
-      { property: "og:url", content: "https://greenfluence2026.lovable.app/" },
+      { property: "og:url", content: canonicalUrl("/") },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://greenfluence2026.lovable.app/" }],
+    links: [{ rel: "canonical", href: canonicalUrl("/") }],
   }),
   component: Home,
 });
@@ -48,10 +49,11 @@ function Home() {
           "@type": "WebSite",
           name: "GreenFluence 2026",
           alternateName: "GreenFluence",
-          url: "https://greenfluence2026.lovable.app/",
+          url: canonicalUrl("/"),
           description:
             "Bangladesh’s national sustainable brand storytelling and campaign innovation competition for students.",
           inLanguage: ["en", "bn"],
+          alternateName: ["GreenFluence", "গ্রিনফ্লুয়েন্স ২০২৬"],
         })}
       </script>
       {/* Hero */}

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { JoinTiles } from "@/components/site/JoinTile";
 import { PageHeader, Section } from "@/components/site/PageHeader";
 import { useLang } from "@/lib/i18n";
+import { canonicalUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/join")({
   head: () => ({
@@ -10,9 +11,11 @@ export const Route = createFileRoute("/join")({
       { name: "description", content: "Register your team, apply as a Club Partner, or become a Campus Ambassador for GreenFluence 2026." },
       { property: "og:title", content: "Join Us — GreenFluence 2026" },
       { property: "og:description", content: "Three ways to join GreenFluence 2026: team registration, club partners, and campus ambassadors." },
+      { property: "og:url", content: canonicalUrl("/join") },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/join") }],
   }),
   component: JoinPage,
 });

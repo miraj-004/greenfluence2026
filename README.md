@@ -4,7 +4,7 @@ Implement exactly the screenshot and nothing else
 
 This project was built with [Lovable](https://lovable.dev).
 
-**Live app**: https://greenfluence2026.lovable.app
+**Live app**: https://www.greenfluenceearthsants.com
 
 ## Build with Lovable
 

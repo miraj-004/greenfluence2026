@@ -9,6 +9,7 @@ import { RegisterLink } from "@/components/site/RegisterLink";
 import { BRIEF_STEPS, CATEGORIES, SCORES, SDGS, TEAM_RULES, type CategoryId } from "@/data/content";
 import { ORG_LINKS } from "@/data/links";
 import { useLang } from "@/lib/i18n";
+import { canonicalUrl } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 const IDS = ["seedlings", "saplings", "forests"];
@@ -28,9 +29,11 @@ export const Route = createFileRoute("/competition")({
       { name: "description", content: "Eligibility, team rules, the campaign brief, SDGs, example campaigns, submissions and judging for GreenFluence 2026." },
       { property: "og:title", content: "The Challenge — GreenFluence 2026" },
       { property: "og:description", content: "Check your category, build your team, and learn what judges look for in GreenFluence 2026." },
+      { property: "og:url", content: canonicalUrl("/competition") },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/competition") }],
   }),
   component: CompetitionPage,
 });

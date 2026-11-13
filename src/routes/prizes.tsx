@@ -5,6 +5,7 @@ import { PageHeader, Section } from "@/components/site/PageHeader";
 import { RegisterLink } from "@/components/site/RegisterLink";
 import { UI } from "@/data/ui";
 import { useLang } from "@/lib/i18n";
+import { canonicalUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/prizes")({
   head: () => ({
@@ -13,9 +14,11 @@ export const Route = createFileRoute("/prizes")({
       { name: "description", content: "Champion, 1st Runner-up and 2nd Runner-up in each category, plus certificates for participants and finalists." },
       { property: "og:title", content: "Prize Pool & Recognition — GreenFluence 2026" },
       { property: "og:description", content: "How GreenFluence 2026 recognizes teams across Seedlings, Saplings and Forests." },
+      { property: "og:url", content: canonicalUrl("/prizes") },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/prizes") }],
   }),
   component: PrizesPage,
 });

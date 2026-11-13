@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { FAQAccordion } from "@/components/site/FAQAccordion";
 import { PageHeader, Section } from "@/components/site/PageHeader";
 import { useLang } from "@/lib/i18n";
+import { canonicalUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
@@ -10,9 +11,11 @@ export const Route = createFileRoute("/faq")({
       { name: "description", content: "Answers about categories, team size, registration, real and hypothetical brands, activations, and awards." },
       { property: "og:title", content: "FAQ — GreenFluence 2026" },
       { property: "og:description", content: "Searchable answers for GreenFluence 2026 participants." },
+      { property: "og:url", content: canonicalUrl("/faq") },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: canonicalUrl("/faq") }],
   }),
   component: FaqPage,
 });

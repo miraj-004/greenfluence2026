@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://greenfluence2026.lovable.app/sitemap.xml
+Sitemap: https://www.greenfluenceearthsants.com/sitemap.xml
