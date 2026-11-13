@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import eaLogo from "@/assets/earths-ants-logo.png.asset.json";
-import esdmBadge from "@/assets/esdm-badge.jpg.asset.json";
+import { BrandImage } from "@/components/site/BrandImage";
 import { FooterLandscape } from "@/components/nature/FooterLandscape";
 import { UI } from "@/data/ui";
 import { useLang } from "@/lib/i18n";
@@ -10,11 +9,11 @@ export function OrganizerRow({ compact }: { compact?: boolean }) {
   return (
     <div className={`grid gap-4 ${compact ? "sm:grid-cols-2" : "md:grid-cols-2"}`}>
       <div className="flex items-center gap-4">
-        <img src={eaLogo.url} alt="Earth’s Ants logo" width={180} height={52} className="h-12 w-auto shrink-0" loading="lazy" />
+        <BrandImage src="/earths.jpeg" alt="Earth’s Ants logo" fallback="Earth’s Ants" width={48} height={48} className="size-12 shrink-0 rounded-full object-cover" fallbackClassName="text-xs" loading="lazy" />
         <span className="text-sm text-muted-foreground">{t(UI.earthsAnts)}</span>
       </div>
       <div className="flex items-center gap-4">
-        <img src={esdmBadge.url} alt="Department of ESDM, Daffodil International University badge" width={48} height={48} className="size-12 shrink-0 rounded-full" loading="lazy" />
+        <BrandImage src="/def.jpeg" alt="Department of ESDM, Daffodil International University badge" fallback="ESDM" width={48} height={48} className="size-12 shrink-0 rounded-full object-cover" fallbackClassName="px-1 text-[10px]" loading="lazy" />
         <span className="text-sm text-muted-foreground">{t(UI.esdm)}</span>
       </div>
     </div>

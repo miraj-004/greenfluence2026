@@ -2,11 +2,11 @@ import { EVENT_LINK } from "@/data/links";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Award, BadgeCheck, Building2, Lightbulb, Target } from "lucide-react";
 import { useRef } from "react";
-import gfLogo from "@/assets/greenfluence-logo.png.asset.json";
 import { CategoryArt } from "@/components/nature/CategoryArt";
 import { Earth } from "@/components/nature/Earth";
 import { Landscape } from "@/components/nature/Landscape";
 import { FallingLeaves } from "@/components/nature/Wildlife";
+import { BrandImage } from "@/components/site/BrandImage";
 import { CompetitionExplorer } from "@/components/site/CompetitionExplorer";
 import { JoinTiles } from "@/components/site/JoinTile";
 import { Section } from "@/components/site/PageHeader";
@@ -45,7 +45,7 @@ function Home() {
         <Landscape />
         <div className="container-site relative grid py-14 md:py-20">
           <div className="max-w-2xl">
-            <img src={gfLogo.url} alt="GreenFluence 2026 logo" width={200} height={110} className="mb-6 h-28 w-auto sm:h-36 lg:h-44" />
+            <BrandImage src="/favicon.png" alt="GreenFluence 2026 logo" fallback="GreenFluence 2026" width={64} height={64} className="mb-6 size-16 sm:size-20 lg:size-24" fallbackClassName="max-w-[200px] text-xl sm:text-2xl" />
             <h1 className="h-display">{t(HOME.headline)}</h1>
             <p className="mt-5 max-w-xl text-lg text-foreground/80">{t(HOME.sub)}</p>
             <div className="mt-8 flex flex-wrap gap-3">

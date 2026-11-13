@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Megaphone } from "lucide-react";
-import eaLogo from "@/assets/earths-ants-logo.png.asset.json";
-import esdmBadge from "@/assets/esdm-badge.jpg.asset.json";
+import { BrandImage } from "@/components/site/BrandImage";
 import { PageHeader, Section } from "@/components/site/PageHeader";
 import { ANNOUNCEMENTS } from "@/data/content";
 import { ORG_LINKS } from "@/data/links";
@@ -55,13 +54,13 @@ function EventInfoPage() {
       <Section id="organizers" title={t(UI.nav.organizers)}>
         <div className="grid gap-4 md:grid-cols-2">
           <article className="flex flex-col rounded-xl border border-border bg-card p-6">
-            <div className="flex h-20 items-center"><img src={eaLogo.url} alt="Earth’s Ants logo" className="h-16 w-auto" loading="lazy" /></div>
+            <div className="flex h-20 items-center"><BrandImage src="/earths.jpeg" alt="Earth’s Ants logo" fallback="Earth’s Ants" className="size-16 rounded-full object-cover" fallbackClassName="text-sm" loading="lazy" /></div>
             <h3 className="mt-4 text-xl font-semibold">{t(UI.earthsAnts)}</h3>
             <p className="mt-2 flex-1 text-muted-foreground">{t({ en: "A youth-led environmental organization working on environmental learning, youth leadership, and sustainability.", bn: "পরিবেশ শিক্ষা, তরুণ নেতৃত্ব ও টেকসইতা নিয়ে কাজ করা একটি তরুণ-নেতৃত্বাধীন পরিবেশ সংগঠন।" })}</p>
             <Ext href={ORG_LINKS.earthsAnts}>{t({ en: "Visit Earth’s Ants", bn: "আর্থস অ্যান্টস ওয়েবসাইট" })}</Ext>
           </article>
           <article className="flex flex-col rounded-xl border border-border bg-card p-6">
-            <div className="flex h-20 items-center"><img src={esdmBadge.url} alt="Department of ESDM, Daffodil International University badge" className="size-16 rounded-full" loading="lazy" /></div>
+            <div className="flex h-20 items-center"><BrandImage src="/def.jpeg" alt="Department of ESDM, Daffodil International University badge" fallback="ESDM" className="size-16 rounded-full object-cover" fallbackClassName="px-1 text-xs" loading="lazy" /></div>
             <h3 className="mt-4 text-xl font-semibold">{t(UI.esdm)}</h3>
             <p className="mt-2 flex-1 text-muted-foreground">{t({ en: "The academic department focused on environmental science and disaster management.", bn: "পরিবেশ বিজ্ঞান ও দুর্যোগ ব্যবস্থাপনা বিষয়ক একাডেমিক বিভাগ।" })}</p>
             <Ext href={ORG_LINKS.esdm}>{t({ en: "Visit DIU ESDM", bn: "DIU ESDM বিভাগ" })}</Ext>
